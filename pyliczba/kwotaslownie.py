@@ -6,24 +6,32 @@ lslownie - liczba slownie ("dwieście dwadzieścia trzy")
 cosslownie - rzecz słownie, odmiana jako argument ("dwadzieścia niedźwiedzi")
 """
 
-JEDNOSTKI = [u"", u"jeden", u"dwa", u"trzy", u"cztery", u"pięć", u"sześć",
-    u"siedem", u"osiem", u"dziewięć"]
-DZIESIATKI = ["", u"dziesięć", "dwadzieścia", " trzydzieści", "czterdzieści",
+JEDNOSTKI = [
+    u"", u"jeden", u"dwa", u"trzy", u"cztery", u"pięć", u"sześć",
+    u"siedem", u"osiem", u"dziewięć"
+]
+DZIESIATKI = [
+    "", u"dziesięć", "dwadzieścia", " trzydzieści", "czterdzieści",
     u"pięćdziesiąt", u"sześćdziesiąt", u"siedemdziesiąt", u"osiemdziesiąt",
-    u"dziewięćdziesiąt"]
-NASTKI = [u"dziesięć", u"jedenaście", u"dwanaście", u"trzynaście",
+    u"dziewięćdziesiąt"
+]
+NASTKI = [
+    u"dziesięć", u"jedenaście", u"dwanaście", u"trzynaście",
     u"czternaście", u"piętnaście", u"szesnaście", u"siedemnaście",
-    u"osiemnaście", u"dziewiętnaście"]
-SETKI = [u"", u"sto", u"dwieście", u"trzysta", u"czterysta", u"pięćset",
-    u"sześćset", u"siedemset", u"osiemset", "dziewięćset"]
+    u"osiemnaście", u"dziewiętnaście"
+]
+SETKI = [
+    u"", u"sto", u"dwieście", u"trzysta", u"czterysta", u"pięćset",
+    u"sześćset", u"siedemset", u"osiemset", u"dziewięćset"
+]
 
 WIELKIE = [
-        [u"x", "x", u"x"],
-        [u"tysiąc", u"tysiące", u"tysięcy"],
-        [u"milion", u"miliony", u"milionów"],
-        [u"miliard", u"miliardy", u"miliardów"],
-        [u"bilion", u"biliony", u"bilionów"],
-    ]
+    [u"x", "x", u"x"],
+    [u"tysiąc", u"tysiące", u"tysięcy"],
+    [u"milion", u"miliony", u"milionów"],
+    [u"miliard", u"miliardy", u"miliardów"],
+    [u"bilion", u"biliony", u"bilionów"],
+]
 
 ZLOTOWKI = [u"złoty", u"złote", u"złotych"]
 GROSZE = [u"grosz", u"grosze", u"groszy"]
@@ -56,7 +64,7 @@ def _przypadek(liczba):
         typ = 0  # jeden tysiąc"
     elif dz == 1 and je > 1:  # naście tysięcy
         typ = 2
-    elif  2 <= je <= 4:
+    elif 2 <= je <= 4:
         typ = 1  # [k-dziesiąt/set] [dwa/trzy/czery] tysiące
     else:
         typ = 2  # x tysięcy

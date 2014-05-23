@@ -6,12 +6,13 @@ lslownie - liczba slownie ("dwieście dwadzieścia trzy")
 cosslownie - rzecz słownie, odmiana jako argument ("dwadzieścia niedźwiedzi")
 """
 
+
 JEDNOSTKI = [
     u"", u"jeden", u"dwa", u"trzy", u"cztery", u"pięć", u"sześć",
     u"siedem", u"osiem", u"dziewięć"
 ]
 DZIESIATKI = [
-    "", u"dziesięć", "dwadzieścia", " trzydzieści", "czterdzieści",
+    "", u"dziesięć", u"dwadzieścia", u"trzydzieści", u"czterdzieści",
     u"pięćdziesiąt", u"sześćdziesiąt", u"siedemdziesiąt", u"osiemdziesiąt",
     u"dziewięćdziesiąt"
 ]
@@ -26,7 +27,7 @@ SETKI = [
 ]
 
 WIELKIE = [
-    [u"x", "x", u"x"],
+    [u"x", u"x", u"x"],
     [u"tysiąc", u"tysiące", u"tysięcy"],
     [u"milion", u"miliony", u"milionów"],
     [u"miliard", u"miliardy", u"miliardów"],
@@ -52,7 +53,7 @@ def _slownie3cyfry(liczba):
             slowa.append(DZIESIATKI[dz])
         if je > 0:
             slowa.append(JEDNOSTKI[je])
-    retval = " ".join(slowa)
+    retval = u" ".join(slowa)
     return retval
 
 
@@ -108,10 +109,13 @@ def kwotaslownie(liczba, fmt=0):
     liczba - float, liczba złotych z groszami po przecinku
     fmt - (format) jesli 0, to grosze w postaci xx/100, słownie w p. przypadku
     """
+    # Obcięcie float do 2 liczb po przecinku
+    liczba = round(liczba, 2)
+
     lzlotych = int(liczba)
     lgroszy = int(liczba * 100 + 0.5) % 100
     if fmt != 0:
         groszslownie = cosslownie(lgroszy, GROSZE)
     else:
-        groszslownie = "%d/100" % lgroszy
+        groszslownie = u"%d/100" % lgroszy
     return cosslownie(lzlotych, ZLOTOWKI) + u" " + groszslownie
